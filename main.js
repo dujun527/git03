@@ -13,7 +13,8 @@ require.config({
         bootstrap:"../assets/bootstrap/js/bootstrap",
         text:"lib/text",
         tpls:"../tpls",
-        template:"lib/template-web"
+        template:"lib/template-web",
+        dateTime:"../assets/js/bootstrap-datetimepicker"
     },
     shim:{
         bootstrap:{

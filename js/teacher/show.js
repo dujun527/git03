@@ -1,6 +1,6 @@
 
 
-define(["jquery","text!tpls/teacherInfos.html","bootstrap"],function ($,teacherInfos) {
+define(["jquery","text!tpls/teacherInfos.html","template"],function ($,teacherInfos,template) {
       return function (tc_id) {
           // alert("我是弹出框"+tc_id);
           $.ajax({
@@ -8,9 +8,10 @@ define(["jquery","text!tpls/teacherInfos.html","bootstrap"],function ($,teacherI
               data:{tc_id:tc_id},
               success:function (data) {
                   console.log(data);
-                  // console.log(teacherInfos);
-               $("body").append(teacherInfos);
 
+               $("#modalShow").remove();
+                var teacherShow = template.render(teacherInfos,data.result);
+                  $(teacherShow).appendTo("body").modal();
               }
           })
       }
