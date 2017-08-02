@@ -12,11 +12,12 @@ define(["jquery","text!tpls/teacheradd.html","dateTime"],function ($,teacherAdd)
             language: 'zh-CN',
             startDate:new Date()
         });
-        $("body").on("submit","#modalTeacherAdd form",function () {
 
+        var $modalTeacherAdd = $("#modalTeacherAdd");
+
+        $modalTeacherAdd.on("submit","form",function () {
             var formData = $(this).serialize();
-            var that = $(this);
-
+            // var that = $(this);
              $.ajax({
                 url:"/api/teacher/add",
                 data:formData,
@@ -27,6 +28,7 @@ define(["jquery","text!tpls/teacheradd.html","dateTime"],function ($,teacherAdd)
                         console.log("请求成功2");
                         $("#modalTeacherAdd  .close").trigger("click");
                         $(".left .list-group .link-teacher").trigger("click");
+                        $(".datetimepicker").remove();
                     }
                 }
              });

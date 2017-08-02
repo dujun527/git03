@@ -24,7 +24,7 @@ require.config({
 
 });
 
-require(["jquery","teacher/list","bootstrap","common/checkLogin"],function($,teacherList){
+require(["jquery","teacher/list","sort/list","manager/list","bootstrap","common/checkLogin"],function($,teacherList,sortList,managerList){
     var userInfoStr=sessionStorage.getItem("userInfo");
     var userInfo=JSON.parse(userInfoStr);
     //1、设置用户的头像和用户名
@@ -36,9 +36,9 @@ require(["jquery","teacher/list","bootstrap","common/checkLogin"],function($,tea
         if($(this).hasClass("link-teacher")){
             teacherList();
         }else if($(this).hasClass("link-course-manager")){
-            $(".menu-content").html("课程管理");
+            managerList();
         }else if($(this).hasClass("link-course-category")){
-            $(".menu-content").html("课程分类");
+            sortList();
         }else if($(this).hasClass("link-chart")){
             $(".menu-content").html("图表统计");
         }

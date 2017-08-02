@@ -11,7 +11,7 @@ define(["jquery","text!tpls/teacherInfos.html","template"],function ($,teacherIn
 
                $("#modalShow").remove();
                 var teacherShow = template.render(teacherInfos,data.result);
-                  $(teacherShow).appendTo("body").modal();
+                $(teacherShow).appendTo("body").modal();
               }
           })
       }
