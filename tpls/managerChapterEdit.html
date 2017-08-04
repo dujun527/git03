@@ -1,49 +1,48 @@
-<div class="modal fade" id="modalSortEdit" tabindex="-1" role="dialog">
+<div class="modal fade" id="modalTeacherAdd" tabindex="-1" role="dialog">
     <!--模态框的模板文件只能有一个根元素-->
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">编辑课程</h4>
+                <h4 class="modal-title">编辑课时</h4>
             </div>
             <div class="modal-body">
                 <form class="form form-horizontal">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">课程名称</label>
+                        <label class="col-sm-2 control-label">姓名</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="cg_name" value="{{cg_name}}">
-                            <input type="hidden" class="form-control" name="cg_id" value="{{cg_id}}">
+                            <input type="text" class="form-control" name="tc_name">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">是否显示</label>
+                        <label class="col-sm-2 control-label">密码</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" name="tc_pass">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">性别</label>
                         <div class="col-sm-10">
                             <label class="radio-inline">
-                                <input type="radio" name="cg_is_hide" value="0" checked="{{cg_is_hide==0 ? 'checked':''}}">显示
+                                <input type="radio" name="tc_gender" value="0" checked="checked"> 男
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="cg_is_hide" value="1" checked="{{cg_is_hide==1 ? 'checked':''}}">隐藏
+                                <input type="radio" name="tc_gender" value="1"> 女
                             </label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">排序</label>
+                        <label class="col-sm-2 control-label">入职日期</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control form_datetime" name="cg_order" value="{{cg_order}}">
+                            <input type="text" class="form-control form_datetime" name="tc_join_date">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">上级分类</label>
+                        <label class="col-sm-2 control-label">类型</label>
                         <div class="col-sm-10">
-                            <select name="cg_pid" class="form-control">
-                                <option  value="0">顶级分类</option>
-                                {{each top}}
-                                {{if($value.cg_id==cg_id)}}
-                                <option  value="{{$value.cg_id}}"  selected="selected" >{{$value.cg_name}}</option>
-                                {{else}}
-                                <option  value="{{$value.cg_id}}" >{{$value.cg_name}}</option>
-                                {{/if}}
-                                 {{/each}}
+                            <select name="tc_type" class="form-control">
+                                <option value="0">管理员</option>
+                                <option value="1">讲师</option>
                             </select>
                         </div>
                     </div>

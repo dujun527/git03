@@ -7,8 +7,9 @@
 //requireJS主要实现单页应用(ajax请求实现数据交互-->大量的应用于企业级项目)
 
 require.config({
-    baseUrl:"js",
-    paths:{
+    baseUrl:"js", //全局默认的路径口
+
+    paths:{  //配置单独的变量代指后面的路径
         jquery:"lib/jquery-2.1.4",
         bootstrap:"../assets/bootstrap/js/bootstrap",
         text:"lib/text",
@@ -16,7 +17,7 @@ require.config({
         template:"lib/template-web",
         dateTime:"../assets/js/bootstrap-datetimepicker"
     },
-    shim:{
+    shim:{  //这里对于不支持AMD规则的引用，倚赖于jquery，这样先加载jquery.
         bootstrap:{
             deps:["jquery"]
         }

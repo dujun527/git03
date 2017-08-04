@@ -7,14 +7,23 @@ define(["jquery","text!tpls/teacheredit.html","template"],function ($,teacherEdi
             url:"/api/teacher/edit",
             data:{tc_id:id},
             success:function (res) {
-                console.log(res);
-                // alert("我要开始编辑讲师列表了");
+                // console.log(res);
                 var teacherEdits = template.render(teacherEdit,res.result);
                 $(teacherEdits).appendTo("body").modal();
                 var $modalTeacherEdit = $("#modalTeacherEdit");
                 $modalTeacherEdit.on("submit","form",function () {
                     var formDate = $(this).serialize();
                     console.log(formDate);
+                    $.ajax({
+                      url:"/api/teacher/update",
+                      data:formDate,
+                      type:"post",
+                      success:function (ret) {
+                          // console.log(ret);
+                          $modalTeacherEdit.find(".close").trigger("click");
+                          $(".left .list-group .link-teacher").trigger("click");
+                      }
+                    });
                     return false;
                 })
 
