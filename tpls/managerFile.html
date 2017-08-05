@@ -1,0 +1,26 @@
+<div class="panel panel-default" id="managerFils">
+    <div class="panel-body">
+        <ol class="breadcrumb">
+            <li><a href="#">课程管理</a></li>
+            <li class="active">管理列表</li>
+        </ol>
+
+        <div class="media">
+            <div class="media-left">
+                <a id="files" href="javascript:void(0)">
+                    <img class="media-object" src="{{cs_cover}}" width="420" height="300">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">课程名称：{{cs_name}}</h4>
+                <h4 class="media-heading">讲师名称：{{tc_name}}</h4>
+                <div id="fileQueue"></div>
+                <input type="file" cs_id="{{cs_id}}" name="uploadify" id="uploadify" />
+                <p>
+                    <a href="javascript:$('#uploadify').uploadifyUpload()">上传</a>|
+                    <a href="javascript:$('#uploadify').uploadifyClearQueue()">取消上传</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

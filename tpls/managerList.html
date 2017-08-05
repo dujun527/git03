@@ -4,15 +4,10 @@
             <li><a href="#">课程管理</a></li>
             <li class="active">管理列表</li>
         </ol>
-        <div class="row">
-            <div class="col-md-1 col-md-offset-10">
-                <button  class="btn btn-success">添加分类</button>
-            </div>
-        </div>
         {{each result}}
         <div class="media">
             <div class="media-left">
-                <a href="#">
+                <a id="files" href="javascript:void(0)" cs_id="{{$value.cs_id}}" cs_name="{{$value.cs_name}}" tc_name="{{$value.tc_name}}">
                     <img class="media-object" src="{{$value.cs_cover == 'http://static.botue.com/images/cover/?' ?  'imgs/kmg3.jpg' : $value.cs_cover}}" width="420" height="300">
                 </a>
             </div>
